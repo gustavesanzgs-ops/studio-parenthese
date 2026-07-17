@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import emailjs from '@emailjs/browser'
 import Button from '@/components/ui/Button'
 import TextReveal from '@/components/effects/TextReveal'
+
+// Initialize EmailJS
+emailjs.init('zoPYARcdPfKrTmnW0')
 
 const inputBase = `
   w-full bg-transparent border-b py-3
@@ -42,11 +46,40 @@ export default function Contact() {
     projet: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
+    setIsLoading(true)
+
+    try {
+      await emailjs.send('service_38wqrsc', 'template_233bu9j', {
+        to_email: 'studioparenthese1@gmail.com',
+        from_name: `${formData.prenom} ${formData.nom}`,
+        from_email: formData.email,
+        telephone: formData.telephone,
+        entreprise: formData.entreprise,
+        personnes: formData.personnes,
+        budget: formData.budget,
+        projet: formData.projet,
+      })
+      setSubmitted(true)
+      setFormData({
+        prenom: '',
+        nom: '',
+        email: '',
+        telephone: '',
+        entreprise: '',
+        personnes: '',
+        budget: '',
+        projet: '',
+      })
+    } catch (error) {
+      console.error('Email send error:', error)
+      alert('Erreur lors de l\'envoi du formulaire. Veuillez réessayer.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleChange = (e) => {
@@ -302,8 +335,8 @@ export default function Contact() {
               </Field>
 
               <div className="pt-2">
-                <Button type="submit" variant="primary" size="lg">
-                  Envoyer le projet
+                <Button type="submit" variant="primary" size="lg" disabled={isLoading}>
+                  {isLoading ? 'Envoi en cours...' : 'Envoyer le projet'}
                 </Button>
               </div>
               </motion.div>

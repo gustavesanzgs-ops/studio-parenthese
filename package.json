@@ -9,12 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@studio-freight/lenis": "^1.0.42",
+    "framer-motion": "^11.0.0",
+    "gsap": "^3.12.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.0",
-    "framer-motion": "^11.0.0",
-    "@studio-freight/lenis": "^1.0.42",
-    "gsap": "^3.12.5"
+    "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
