@@ -244,7 +244,7 @@ export default function Hero() {
                     alt="Parenthèse"
                     style={{
                       height: themeData.id === 'enquete'
-                        ? 'clamp(4rem, 16vw, 8rem)'
+                        ? 'clamp(8rem, 35vw, 16rem)'
                         : 'clamp(4rem, 16vw, 6.5rem)',
                       width: 'auto',
                       display: 'inline-block',
