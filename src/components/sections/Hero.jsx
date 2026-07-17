@@ -239,9 +239,7 @@ export default function Hero() {
                   fontWeight: undefined,
                   letterSpacing: undefined,
                   position: undefined,
-                  filter: themeData.id === 'archipel'
-                    ? 'url(#bark-edges)'
-                    : 'none',
+                  filter: 'none',
                 }}
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -261,17 +259,7 @@ export default function Hero() {
                     />
                   )
                   : themeData.id === 'archipel'
-                  ? (
-                    <img
-                      src="/images/logo-archipel.png"
-                      alt="Parenthèse Archipel"
-                      style={{
-                        height: 'clamp(4rem, 16vw, 6.5rem)',
-                        width: 'auto',
-                        display: 'inline-block',
-                      }}
-                    />
-                  )
+                  ? 'parenthèse'
                   : themeData.id === 'arene'
                   ? (
                     <img
