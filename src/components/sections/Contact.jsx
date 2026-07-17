@@ -171,19 +171,23 @@ export default function Contact() {
               </p>
             </motion.div>
           ) : (
-            <motion.form
+            <form
               name="contact"
               method="POST"
-              netlify="true"
+              netlify
               netlifyHoneypot="bot-field"
               onSubmit={handleSubmit}
-              className="space-y-8"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.35 }}
             >
               <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="bot-field" />
+              <p style={{ display: 'none' }}>
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+              </p>
+              <motion.div
+                className="space-y-8"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.35 }}
+              >
 
               {/* Prénom / Nom */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -302,7 +306,8 @@ export default function Contact() {
                   Envoyer le projet
                 </Button>
               </div>
-            </motion.form>
+              </motion.div>
+            </form>
           )}
         </div>
       </div>
