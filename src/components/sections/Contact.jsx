@@ -53,15 +53,23 @@ export default function Contact() {
     setIsLoading(true)
 
     try {
-      await emailjs.send('service_38wqrsc', 'template_233bu9j', {
-        to_email: 'studioparenthese1@gmail.com',
-        from_name: `${formData.prenom} ${formData.nom}`,
-        from_email: formData.email,
-        telephone: formData.telephone,
-        entreprise: formData.entreprise,
-        personnes: formData.personnes,
-        budget: formData.budget,
-        projet: formData.projet,
+      const messageContent = `
+Prénom: ${formData.prenom}
+Nom: ${formData.nom}
+Email: ${formData.email}
+Téléphone: ${formData.telephone}
+Entreprise: ${formData.entreprise}
+Nombre de personnes: ${formData.personnes}
+Budget: ${formData.budget}
+
+Projet:
+${formData.projet}
+      `
+
+      await emailjs.send('service_38wqrsc', 'template_pzj8x18', {
+        name: `${formData.prenom} ${formData.nom}`,
+        message: messageContent,
+        time: new Date().toLocaleString('fr-FR'),
       })
       setSubmitted(true)
       setFormData({
