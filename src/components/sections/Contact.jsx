@@ -1,11 +1,7 @@
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
-import emailjs from '@emailjs/browser'
+import { useState } from 'react'
 import Button from '@/components/ui/Button'
 import TextReveal from '@/components/effects/TextReveal'
-
-// Initialize EmailJS
-emailjs.init('zoPYARcdPfKrTmnW0')
 
 const inputBase = `
   w-full bg-transparent border-b py-3
@@ -53,38 +49,41 @@ export default function Contact() {
     setIsLoading(true)
 
     try {
-      const messageContent = `
-Prénom: ${formData.prenom}
-Nom: ${formData.nom}
-Email: ${formData.email}
-Téléphone: ${formData.telephone}
-Entreprise: ${formData.entreprise}
-Nombre de personnes: ${formData.personnes}
-Budget: ${formData.budget}
-
-Projet:
-${formData.projet}
-      `
-
-      await emailjs.send('service_38wqrsc', 'template_pzj8x18', {
-        name: `${formData.prenom} ${formData.nom}`,
-        message: messageContent,
-        time: new Date().toLocaleString('fr-FR'),
+      const response = await fetch('https://formspree.io/f/mgogaqaj', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prenom: formData.prenom,
+          nom: formData.nom,
+          email: formData.email,
+          telephone: formData.telephone,
+          entreprise: formData.entreprise,
+          personnes: formData.personnes,
+          budget: formData.budget,
+          projet: formData.projet,
+        }),
       })
-      setSubmitted(true)
-      setFormData({
-        prenom: '',
-        nom: '',
-        email: '',
-        telephone: '',
-        entreprise: '',
-        personnes: '',
-        budget: '',
-        projet: '',
-      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        setFormData({
+          prenom: '',
+          nom: '',
+          email: '',
+          telephone: '',
+          entreprise: '',
+          personnes: '',
+          budget: '',
+          projet: '',
+        })
+      } else {
+        alert('Erreur lors de l\'envoi du formulaire. Veuillez réessayer.')
+      }
     } catch (error) {
-      console.error('Email send error:', error)
-      alert('Erreur lors de l\'envoi du formulaire. Veuillez réessayer.')
+      console.error('Form send error:', error)
+      alert('Erreur de connexion. Veuillez réessayer.')
     } finally {
       setIsLoading(false)
     }
