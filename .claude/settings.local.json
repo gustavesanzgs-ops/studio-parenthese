@@ -39,7 +39,10 @@
       "Bash(cp \"/Users/gustavesanz/Desktop/logo parenthèse kohlanta.png\" /Users/gustavesanz/studio-parenthese/public/images/logo-archipel.png)",
       "Bash(rm /Users/gustavesanz/studio-parenthese-dist.zip)",
       "Bash(zip -r ../studio-parenthese-dist.zip dist/)",
-      "Bash(identify -verbose /Users/gustavesanz/studio-parenthese/public/images/logo-archipel.png)"
+      "Bash(identify -verbose /Users/gustavesanz/studio-parenthese/public/images/logo-archipel.png)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }

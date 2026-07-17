@@ -263,7 +263,7 @@ export default function Hero() {
                   : themeData.id === 'archipel'
                   ? (
                     <img
-                      src="/images/logo-archipel.svg"
+                      src="/images/logo-archipel.png"
                       alt="Parenthèse Archipel"
                       style={{
                         height: 'clamp(4rem, 16vw, 6.5rem)',
