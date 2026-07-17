@@ -237,7 +237,7 @@ export default function Hero() {
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               >
                 {themeData.id === 'default' ? (
-                  <span>parenthèse</span>
+                  <span style={{ color: 'var(--theme-accent)' }}>parenthèse</span>
                 ) : (
                   <img
                     src={`/images/logo-${themeData.id}.png`}
