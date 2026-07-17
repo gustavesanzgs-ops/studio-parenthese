@@ -209,8 +209,8 @@ export default function Hero() {
         </motion.div>
 
         <h1
-          className="font-display mb-4"
-          style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', fontWeight: 900, lineHeight: 1.1, letterSpacing: '-0.02em', maxWidth: '90%', marginLeft: 'auto', marginRight: 'auto' }}
+          className={themeData.id === 'enquete' ? 'font-display mb-4' : 'font-display mb-8'}
+          style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', fontWeight: 900, lineHeight: 1.1, letterSpacing: '-0.02em', ...(themeData.id === 'enquete' ? { maxWidth: '90%', marginLeft: 'auto', marginRight: 'auto' } : {}) }}
         >
           <TextReveal delay={0.2}>
             <span style={{ color: 'var(--color-text-primary)', whiteSpace: 'nowrap' }}>
@@ -222,7 +222,15 @@ export default function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            style={{ display: 'block', lineHeight: 0.7, paddingTop: '0', paddingBottom: '0', textAlign: 'center', width: '100%', marginTop: '-1.2em', marginBottom: '-0.3em' }}
+            style={{
+              display: 'block',
+              lineHeight: themeData.id === 'enquete' ? 0.7 : 1.3,
+              paddingTop: themeData.id === 'enquete' ? '0' : '0.15em',
+              paddingBottom: '0',
+              textAlign: 'center',
+              width: '100%',
+              ...(themeData.id === 'enquete' ? { marginTop: '-1.2em', marginBottom: '-0.3em' } : {})
+            }}
           >
             <AnimatePresence mode="wait">
               <motion.span
