@@ -236,15 +236,19 @@ export default function Hero() {
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               >
-                <img
-                  src="/images/logo-parenthese.png"
-                  alt="Parenthèse"
-                  style={{
-                    height: 'clamp(4rem, 16vw, 6.5rem)',
-                    width: 'auto',
-                    display: 'inline-block',
-                  }}
-                />
+                {themeData.id === 'default' ? (
+                  <span>parenthèse</span>
+                ) : (
+                  <img
+                    src={`/images/logo-${themeData.id}.png`}
+                    alt="Parenthèse"
+                    style={{
+                      height: 'clamp(4rem, 16vw, 6.5rem)',
+                      width: 'auto',
+                      display: 'inline-block',
+                    }}
+                  />
+                )}
               </motion.span>
             </AnimatePresence>
           </motion.div>
