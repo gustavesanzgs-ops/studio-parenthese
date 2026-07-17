@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "studio-parenthese",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 5173
+    },
+    {
+      "name": "tu-connais-la-difference",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "/Users/gustavesanz/tu-connais-la-difference", "run", "dev", "--", "--port", "5180"],
+      "port": 5180
+    },
+    {
+      "name": "tu-connais-la-difference-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "/Users/gustavesanz/tu-connais-la-difference", "run", "preview", "--", "--port", "4173"],
+      "port": 4173
+    }
+  ]
+}

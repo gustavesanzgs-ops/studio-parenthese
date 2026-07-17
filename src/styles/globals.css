@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@300;400;500;700;900&display=swap');
+
+@font-face {
+  font-family: 'Aachen';
+  src: url('/fonts/Aachen.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Cinzel+Decorative:wght@700&family=Bebas+Neue&family=Special+Elite&family=Caveat:wght@700&display=swap');
+
+@font-face {
+  font-family: 'Anton';
+  src: url('/fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/fonts/Cinzel-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bungee';
+  src: url('/fonts/Bungee-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CSS VARIABLES — THEME SYSTEM
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root {
+  --color-bg-primary: #1a1a1a;
+  --color-bg-secondary: #0f0f0f;
+  --color-text-primary: #f5f2eb;
+  --color-text-secondary: #8a8a8a;
+  --color-accent: #ff5a00;
+  --color-accent-glow: rgba(255, 90, 0, 0.15);
+  --theme-bg: #1a1a1a;
+  --theme-bg-gradient: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+  --theme-overlay: rgba(0, 0, 0, 0.3);
+  --theme-accent: #ff5a00;
+  --theme-accent-subtle: rgba(255, 90, 0, 0.08);
+  --theme-grain-opacity: 0.04;
+  --theme-transition-speed: 1.5s;
+  --header-height: 5rem;
+  --font-display: 'Satoshi', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Satoshi', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+[data-theme="secrets"] {
+  --theme-bg: #130810;
+  --theme-bg-gradient: linear-gradient(180deg, #130810 0%, #0a0508 100%);
+  --theme-overlay: rgba(255, 20, 147, 0.05);
+  --theme-accent: #ff1493;
+  --theme-accent-subtle: rgba(255, 20, 147, 0.1);
+  --theme-grain-opacity: 0.06;
+}
+[data-theme="archipel"] {
+  --theme-bg: #110d08;
+  --theme-bg-gradient: linear-gradient(180deg, #110d08 0%, #0a0805 100%);
+  --theme-overlay: rgba(217, 122, 58, 0.05);
+  --theme-accent: #D97A3A;
+  --theme-accent-subtle: rgba(217, 122, 58, 0.1);
+  --theme-grain-opacity: 0.05;
+}
+[data-theme="royaumes"] {
+  --theme-bg: #141210;
+  --theme-bg-gradient: linear-gradient(180deg, #141210 0%, #0c0a08 100%);
+  --theme-overlay: rgba(201, 162, 39, 0.04);
+  --theme-accent: #c9a227;
+  --theme-accent-subtle: rgba(201, 162, 39, 0.08);
+  --theme-grain-opacity: 0.05;
+}
+[data-theme="arene"] {
+  --theme-bg: #0f0a0a;
+  --theme-bg-gradient: linear-gradient(180deg, #0f0a0a 0%, #080505 100%);
+  --theme-overlay: rgba(220, 38, 38, 0.05);
+  --theme-accent: #dc2626;
+  --theme-accent-subtle: rgba(220, 38, 38, 0.08);
+  --theme-grain-opacity: 0.06;
+}
+[data-theme="enquete"] {
+  --theme-bg: #0a0f18;
+  --theme-bg-gradient: linear-gradient(180deg, #0a0f18 0%, #060a10 100%);
+  --theme-overlay: rgba(80, 120, 200, 0.05);
+  --theme-accent: #6080ff;
+  --theme-accent-subtle: rgba(96, 128, 255, 0.08);
+  --theme-grain-opacity: 0.05;
+}
+[data-theme="odyssee"] {
+  --theme-bg: #2a2318;
+  --theme-bg-gradient: linear-gradient(180deg, #2a2318 0%, #1a1610 100%);
+  --theme-overlay: rgba(255, 140, 50, 0.05);
+  --theme-accent: #ff7a30;
+  --theme-accent-subtle: rgba(255, 122, 48, 0.1);
+  --theme-grain-opacity: 0.06;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-family: var(--font-body);
+  background: var(--theme-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background var(--theme-transition-speed) cubic-bezier(0.16, 1, 0.3, 1),
+              color var(--theme-transition-speed) cubic-bezier(0.16, 1, 0.3, 1);
+}
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+.text-balance {
+  text-wrap: balance;
+}
+::selection {
+  background: var(--theme-accent-subtle);
+  color: var(--color-text-primary);
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--theme-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-secondary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-accent);
+}
+/* Cursor is kept visible by default so the native pointer remains available */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: var(--theme-grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='https://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  animation: grain 8s steps(10) infinite;
+}
+.accent-glow {
+  box-shadow: 0 0 40px var(--theme-accent-subtle),
+              0 0 80px var(--theme-accent-subtle);
+}
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--theme-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.theme-transition {
+  transition: background var(--theme-transition-speed) cubic-bezier(0.16, 1, 0.3, 1),
+              color var(--theme-transition-speed) cubic-bezier(0.16, 1, 0.3, 1),
+              border-color var(--theme-transition-speed) cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow var(--theme-transition-speed) cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
