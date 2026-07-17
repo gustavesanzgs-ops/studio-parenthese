@@ -115,11 +115,11 @@ export default function Contact() {
                 Email
               </span>
               <a
-                href="mailto:hello@studioparenthese.com"
+                href="mailto:studioparenthese1@gmail.com"
                 className="text-sm transition-colors duration-500 hover:text-[var(--theme-accent)]"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                hello@studioparenthese.com
+                studioparenthese1@gmail.com
               </a>
             </div>
             <div>
@@ -172,12 +172,18 @@ export default function Contact() {
             </motion.div>
           ) : (
             <motion.form
+              name="contact"
+              method="POST"
+              netlify="true"
+              netlifyHoneypot="bot-field"
               onSubmit={handleSubmit}
               className="space-y-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.35 }}
             >
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" />
 
               {/* Prénom / Nom */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
