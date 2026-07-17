@@ -225,11 +225,11 @@ export default function Hero() {
             style={{
               display: 'block',
               lineHeight: themeData.id === 'enquete' ? 0.7 : 1.3,
-              paddingTop: themeData.id === 'enquete' ? '0' : '0.15em',
+              paddingTop: themeData.id === 'enquete' ? '0.5em' : '0.15em',
               paddingBottom: '0',
               textAlign: 'center',
               width: '100%',
-              ...(themeData.id === 'enquete' ? { marginTop: '-1.2em', marginBottom: '-0.3em' } : {})
+              ...(themeData.id === 'enquete' ? { marginTop: '-0.8em', marginBottom: '-0.3em' } : {})
             }}
           >
             <AnimatePresence mode="wait">
