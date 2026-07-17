@@ -229,87 +229,14 @@ export default function Hero() {
                 key={themeData.id}
                 className="inline-block"
                 style={{
-                  fontFamily: themeData.wordFont || 'inherit',
-                  fontStyle: themeData.wordFont ? 'normal' : 'italic',
-                  textTransform: ['secrets','archipel','royaumes','arene'].includes(themeData.id) ? 'uppercase' : 'none',
-                  WebkitTextStroke: themeData.id === 'secrets' ? '10px rgba(255, 255, 255, 1)' : 'unset',
-                  paintOrder: themeData.id === 'secrets' ? 'stroke fill' : 'unset',
-                  color: 'var(--theme-accent)',
-                  textShadow: 'none',
-                  fontWeight: undefined,
-                  letterSpacing: undefined,
-                  position: undefined,
-                  filter: 'none',
+                  color: 'var(--color-text-primary)',
                 }}
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               >
-                {themeData.id === 'secrets'
-                  ? (
-                    <img
-                      src="/images/logo-secrets.png"
-                      alt="Parenthèse Secrets"
-                      style={{
-                        height: 'clamp(4rem, 16vw, 6.5rem)',
-                        width: 'auto',
-                        display: 'inline-block',
-                      }}
-                    />
-                  )
-                  : themeData.id === 'archipel'
-                  ? 'parenthèse'
-                  : themeData.id === 'arene'
-                  ? (
-                    <img
-                      src="/images/logo-arene.png"
-                      alt="Parenthèse Arène"
-                      style={{
-                        height: 'clamp(4rem, 16vw, 6.5rem)',
-                        width: 'auto',
-                        display: 'inline-block',
-                      }}
-                    />
-                  )
-                  : themeData.id === 'royaumes'
-                  ? (
-                    <img
-                      src="/images/logo-royaumes.png"
-                      alt="Parenthèse Royaumes"
-                      style={{
-                        height: 'clamp(4rem, 16vw, 6.5rem)',
-                        width: 'auto',
-                        display: 'inline-block',
-                      }}
-                    />
-                  )
-                  : themeData.id === 'odyssee'
-                  ? (
-                    <img
-                      src="/images/logo-odyssee.png"
-                      alt="Parenthèse Odyssée"
-                      style={{
-                        height: 'clamp(4rem, 16vw, 6.5rem)',
-                        width: 'auto',
-                        display: 'inline-block',
-                      }}
-                    />
-                  )
-                  : themeData.id === 'enquete'
-                  ? (
-                    <img
-                      src="/images/logo-enquete.png"
-                      alt="Parenthèse Enquête"
-                      style={{
-                        height: 'clamp(4rem, 16vw, 6.5rem)',
-                        width: 'auto',
-                        display: 'inline-block',
-                      }}
-                    />
-                  )
-                  : 'parenthèse'
-                }
+                'parenthèse'
               </motion.span>
             </AnimatePresence>
           </motion.div>
