@@ -243,7 +243,9 @@ export default function Hero() {
                     src={`/images/logo-${themeData.id}.png`}
                     alt="Parenthèse"
                     style={{
-                      height: 'clamp(4rem, 16vw, 6.5rem)',
+                      height: themeData.id === 'enquete'
+                        ? 'clamp(6rem, 20vw, 12rem)'
+                        : 'clamp(4rem, 16vw, 6.5rem)',
                       width: 'auto',
                       display: 'inline-block',
                     }}
