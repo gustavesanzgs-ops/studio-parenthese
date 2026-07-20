@@ -284,36 +284,56 @@ export default function Hero() {
 
       {/* Explorer — scroll indicator, absolutely positioned at bottom */}
       <motion.div
-        className="absolute bottom-12 md:bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
+        className="absolute bottom-12 md:bottom-16 left-1/2 -translate-x-1/2 cursor-pointer"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.8, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
         whileHover={{ scale: 1.05 }}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: 'fit-content',
+        }}
       >
-        <motion.div
-          animate={{ y: [0, 12, 0] }}
+        {/* Text — optically centered, synced with line animation */}
+        <motion.span
+          className="text-xs tracking-[0.15em] uppercase whitespace-nowrap"
+          style={{
+            color: 'var(--color-text-secondary)',
+            lineHeight: 1,
+            height: '1em',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
+            zIndex: 1,
+          }}
+          animate={{ y: [0, -12, 0] }}
           transition={{
-            duration: 2.5,
+            duration: 2,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="flex flex-col items-center gap-1"
         >
-          <span
-            className="text-xs tracking-[0.15em] uppercase whitespace-nowrap leading-none"
-            style={{ color: 'var(--color-text-secondary)' }}
-          >
-            Explorer
-          </span>
-          <motion.div
-            className="w-0.5 h-12"
-            style={{
-              background: `linear-gradient(to bottom, var(--theme-accent), rgba(var(--theme-accent-rgb), 0))`,
-            }}
-            animate={{ scaleY: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </motion.div>
+          Explorer
+        </motion.span>
+
+        {/* Animated line — single animation layer, perfectly aligned */}
+        <motion.div
+          style={{
+            width: '2px',
+            height: '48px',
+            background: `linear-gradient(to bottom, var(--theme-accent), rgba(var(--theme-accent-rgb), 0))`,
+            marginTop: '6px',
+            transformOrigin: 'center center',
+          }}
+          animate={{
+            scaleY: [1, 1.2, 1],
+            opacity: [0.6, 1, 0.6],
+          }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        />
       </motion.div>
 
 
