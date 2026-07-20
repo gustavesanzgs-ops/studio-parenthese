@@ -1,0 +1,11 @@
+Product Type,Category,Description,Common Patterns
+SaaS Dashboard,B2B,Internal productivity tools,Data tables charts analytics
+E-Commerce Store,B2C,Shopping product catalog,Product grids checkout flow
+Marketing Landing,B2B/B2C,Lead generation splash,Hero CTA social proof
+Mobile App,B2C,Native mobile experience,Bottom nav card-based
+AI Tool,B2B,Machine learning interface,Chat input toggle settings
+Design System,Internal,Component library,Modular reusable tokens
+Portfolio,B2C,Personal creative showcase,Hero project grid
+Documentation,B2B,Technical knowledge base,Navigation search sidebar
+Community Forum,B2C,User discussion space,Thread cards nested comments
+API Platform,B2B,Developer integration,Code samples swagger docs

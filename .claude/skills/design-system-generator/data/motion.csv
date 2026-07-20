@@ -1,0 +1,7 @@
+Category,Intensity Tier,Trigger,Duration,Easing,GSAP Snippet,Framework Notes,Do,Don't,Performance Notes
+Fade In,Subtle,Page load,600ms,ease-out,"gsap.to(el, {opacity: 1, duration: 0.6, ease: 'power2.out'});",Works across all frameworks,Keep durations under 600ms,Avoid opacity changes during interaction,Minimal GPU impact
+Slide From Left,Standard,Scroll into view,800ms,ease-out,"gsap.to(el, {x: 0, opacity: 1, duration: 0.8, ease: 'power2.out'}, '-=0.3');",Combine with stagger for lists,Don't slide from right on LTR sites,Use will-change for performance,GPU accelerated
+Bounce,Complex,Button click,1000ms,back-out,"gsap.to(el, {y: -20, duration: 1, ease: 'back.out', overwrite: 'auto'});",Add haptic feedback on mobile,Avoid on form inputs,Use sparingly for emphasis,Higher CPU cost
+Scale Pop,Standard,Modal open,500ms,back-out,"gsap.to(el, {scale: 1, opacity: 1, duration: 0.5, ease: 'back.out'});",Common for modals cards,Don't scale text directly,Scale from small to large,Use transform3d for GPU
+Rotate Spin,Complex,Loading state,2000ms,linear,"gsap.to(el, {rotation: 360, duration: 2, ease: 'none', repeat: -1});",Show loading indicator,Avoid on page load,Use SVG not PNG for rotation,Continuous animation cost
+Stagger List,Standard,Page load,1000ms,ease-out,"gsap.to(items, {opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.1});",Perfect for list renders,Don't stagger too slow,Use key-based stagger indices,Batch GPU operations

@@ -1,0 +1,11 @@
+Category,Do,Don't,Notes
+Buttons,Make buttons at least 44px tall for mobile,Use text links for primary actions,Adequate touch target for accessibility
+Forms,Label every input field clearly,Hide required field indicators,Accessible forms boost conversion
+Navigation,Use consistent navigation patterns,Change navigation between pages,Predictability builds trust
+Empty States,Show helpful empty state illustrations,Leave empty areas blank,Positive empty state engagement
+Loading,Show progress indicators,Block UI without feedback,Transparency builds user confidence
+Modals,Allow escape key to close modals,Trap focus without restore,Proper modal management is critical
+Accessibility,Test with screen readers regularly,Ignore WCAG 2.1 AA standards,A11y benefits all users
+Responsive,Test on real mobile devices,Assume desktop-only scrolling,Mobile is primary for many users
+Focus States,Make focus states clearly visible,Rely only on color to indicate focus,Keyboard users depend on focus states
+Performance,Lazy load images below the fold,Load all assets synchronously,Performance is a feature

@@ -1,0 +1,7 @@
+Pattern Name,Section Order,Primary CTA Placement,Color Strategy,Conversion Optimization
+Hero + Features + CTA,Hero > Features > Social Proof > CTA > Footer,Above fold + end of features,Accent color for CTAs,Clear value prop in hero
+SaaS Classic,Hero > How It Works > Pricing > FAQ > CTA > Footer,Sticky header + end of sections,Primary accent for main CTA,Problem-agitate-solve flow
+E-commerce,Hero > Product Showcase > Reviews > Related Items > CTA > Footer,Persistent top-right + product cards,Urgency color (red/orange) for Add to Cart,Social proof trust signals
+Content Hub,Hero > Featured Content > Categories > Newsletter > Related > Footer,Inline in content + sidebar sticky,Subtle accent for explore links,Easy content discovery
+SaaS Minimal,Hero > Feature Grid > Testimonial > Pricing > CTA > Footer,Hero + floating button,Minimal accent usage,High contrast focus
+Product Launch,Hero > Animated Feature > Video > Stats > Early Access > Footer,Hero CTA + sticky footer,Bold accent primary focus,Scarcity FOMO messaging

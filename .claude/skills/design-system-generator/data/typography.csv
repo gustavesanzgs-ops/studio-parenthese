@@ -1,0 +1,8 @@
+Heading Font,Body Font,Mood/Style Keywords,Best For,Google Fonts URL,CSS Import
+Inter,Inter,Modern clean tech,SaaS startups,https://fonts.google.com/?query=inter,@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+Playfair Display,Lora,Elegant luxury premium,Fashion high-end,https://fonts.google.com/?query=playfair+display,@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:wght@400;500&display=swap');
+Poppins,Open Sans,Playful friendly approachable,Startups apps,https://fonts.google.com/?query=poppins,@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;500&display=swap');
+Sora,Sora,Minimalist modern clean,Premium products,https://fonts.google.com/?query=sora,@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap');
+Cinzel,Lora,Bold classical serif,Luxury brands premium,https://fonts.google.com/?query=cinzel,@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:wght@400;500&display=swap');
+Abril Fatface,Raleway,Expressive artistic bold,Creative design agencies,https://fonts.google.com/?query=abril+fatface,@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@400;500&display=swap');
+Satoshi,Satoshi,Modern smooth geometric,Web3 crypto fintech,https://fonts.google.com/?query=satoshi,@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;600;700&display=swap');

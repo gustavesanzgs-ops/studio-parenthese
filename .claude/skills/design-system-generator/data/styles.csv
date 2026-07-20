@@ -1,0 +1,10 @@
+Style Category,Type,Keywords,Best For,Effects & Animation,Performance,Accessibility,Light Mode ✓,Dark Mode ✓
+Minimalism,General,minimal clean simple centered,Modern SaaS dashboards,Subtle fade-ins and scale,Excellent,High,Yes,Yes
+Flat Design,General,flat bold colorful geometric,Playful startups apps,Micro-interactions,Excellent,High,Yes,Yes
+Brutalism,General,brutal heavy bold asymmetric,Creative agencies art,Rough transitions,Good,Medium,Yes,Limited
+Bento Grids,Layout,modular cards grid asymmetric,Feature showcases,Scale and pop animations,Good,High,Yes,Yes
+Glassmorphism,Modern,glass blur transparency,Premium products,Backdrop filters,Medium,Medium,Limited,Yes
+Neumorphism,Modern,soft embossed shadows,Luxury apps,Subtle depth changes,Good,Medium,Yes,Limited
+Exaggerated Minimalism,Minimal,super minimal whitespace,Premium SaaS products,Delayed cascading animations,Excellent,High,Yes,Yes
+Skeuomorphism,Traditional,realistic textures,iOS apps native feel,Ripple effects shadows,Medium,Medium,Yes,Limited
+Material Design,Modern,material guidelines cards,Enterprise Google apps,Ripples elevation shifts,Good,High,Yes,Yes
