@@ -1,0 +1,69 @@
+{
+  "startDate": "2026-07-20T09:06:00.548Z",
+  "phase": 1,
+  "status": "IN_PROGRESS",
+  "images": {
+    "genesis": {
+      "theme": "Genesis",
+      "color": "#ff5a00",
+      "status": "PENDING",
+      "variants": [],
+      "bestVariant": null,
+      "finalScore": 0
+    },
+    "secrets": {
+      "theme": "Secrets",
+      "color": "#ff1493",
+      "status": "PENDING",
+      "variants": [],
+      "bestVariant": null,
+      "finalScore": 0
+    },
+    "archipel": {
+      "theme": "Archipel",
+      "color": "#D97A3A",
+      "status": "PENDING",
+      "variants": [],
+      "bestVariant": null,
+      "finalScore": 0
+    },
+    "royaumes": {
+      "theme": "Royaumes",
+      "color": "#c9a227",
+      "status": "PENDING",
+      "variants": [],
+      "bestVariant": null,
+      "finalScore": 0
+    },
+    "arene": {
+      "theme": "Arène",
+      "color": "#dc2626",
+      "status": "PENDING",
+      "variants": [],
+      "bestVariant": null,
+      "finalScore": 0
+    },
+    "enquete": {
+      "theme": "Enquête",
+      "color": "#6080ff",
+      "status": "PENDING",
+      "variants": [],
+      "bestVariant": null,
+      "finalScore": 0
+    },
+    "odyssee": {
+      "theme": "Odyssée",
+      "color": "#ff7a30",
+      "status": "PENDING",
+      "variants": [],
+      "bestVariant": null,
+      "finalScore": 0
+    }
+  },
+  "stats": {
+    "generated": 0,
+    "scored": 0,
+    "approved": 0,
+    "rejected": 0
+  }
+}
