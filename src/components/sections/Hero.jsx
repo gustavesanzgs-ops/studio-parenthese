@@ -282,12 +282,9 @@ export default function Hero() {
         </motion.p>
       </motion.div>
 
-      {/* Spacing and Explorer button */}
-      <div className="h-12 md:h-16" />
-
-      {/* Explorer — scroll indicator */}
+      {/* Explorer — scroll indicator, absolutely positioned at bottom */}
       <motion.div
-        className="flex flex-col items-center gap-2 cursor-pointer"
+        className="absolute bottom-12 md:bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.8, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
@@ -319,8 +316,6 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Bottom spacing */}
-      <div className="h-8 md:h-12" />
 
       <div
         className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
