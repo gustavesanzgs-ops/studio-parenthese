@@ -176,19 +176,25 @@ cacheManager.clear()
 - [x] Performance utilities
 - [x] Focus state enhancements
 - [x] Motion preference support
+- [x] Replace logo image in Hero with OptimizedImage
+- [x] Replace Gallery images with OptimizedImage
+- [x] Replace Studio section image with OptimizedImage
+- [x] Update Contact form to use FormField
+- [x] Add page-specific prefetching in App.jsx
+- [x] OptimizedImage style prop support
 
-### Ready to Implement
-- [ ] Replace image usage with OptimizedImage
-- [ ] Update Contact form to use FormField
-- [ ] Add page-specific prefetching
+### In Progress 🔄
 - [ ] Implement Web Vitals monitoring
+- [ ] Replace hero background image with optimized version
+- [ ] Test all optimizations on real devices
 
 ### Future Enhancements
-- [ ] Image format conversion (WebP)
+- [ ] Image format conversion (WebP with PNG fallback)
 - [ ] Critical CSS extraction
 - [ ] Code splitting per route
 - [ ] Service Worker caching
 - [ ] Lenis scroll optimization
+- [ ] Lazy load background images
 
 ## 📝 Usage Guide
 
