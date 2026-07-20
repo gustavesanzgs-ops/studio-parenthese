@@ -282,34 +282,40 @@ export default function Hero() {
         </motion.p>
       </motion.div>
 
-      {/* Explorer — scroll indicator, absolutely positioned at bottom */}
+      {/* Explorer — fixed container for perfect alignment */}
       <motion.div
-        className="absolute bottom-12 md:bottom-16 left-1/2 -translate-x-1/2 cursor-pointer"
+        className="absolute bottom-12 md:bottom-16 left-1/2 cursor-pointer"
+        style={{
+          transform: 'translateX(-50%)',
+          width: '60px',
+          height: '80px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+        }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.8, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
         whileHover={{ scale: 1.05 }}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: 'fit-content',
-        }}
       >
-        {/* Text — optically centered, synced with line animation */}
-        <motion.span
-          className="text-xs tracking-[0.15em] uppercase whitespace-nowrap"
+        {/* Text — absolute positioning within container */}
+        <motion.div
           style={{
+            position: 'absolute',
+            top: '0px',
+            left: '50%',
+            transform: 'translateX(-50%)',
             color: 'var(--color-text-secondary)',
-            lineHeight: 1,
-            height: '1em',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'relative',
-            zIndex: 1,
+            fontSize: '12px',
+            fontWeight: 400,
+            letterSpacing: '0.15em',
+            textTransform: 'uppercase',
+            whiteSpace: 'nowrap',
+            lineHeight: '1',
+            height: '12px',
           }}
-          animate={{ y: [0, -12, 0] }}
+          animate={{ y: [0, -8, 0] }}
           transition={{
             duration: 2,
             repeat: Infinity,
@@ -317,15 +323,18 @@ export default function Hero() {
           }}
         >
           Explorer
-        </motion.span>
+        </motion.div>
 
-        {/* Animated line — single animation layer, perfectly aligned */}
+        {/* Line — absolute positioning, perfectly below text */}
         <motion.div
           style={{
+            position: 'absolute',
+            top: '22px',
+            left: '50%',
+            transform: 'translateX(-50%)',
             width: '2px',
             height: '48px',
             background: `linear-gradient(to bottom, var(--theme-accent), rgba(var(--theme-accent-rgb), 0))`,
-            marginTop: '6px',
             transformOrigin: 'center center',
           }}
           animate={{
