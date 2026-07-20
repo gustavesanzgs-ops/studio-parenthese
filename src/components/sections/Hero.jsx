@@ -284,7 +284,7 @@ export default function Hero() {
 
       {/* Explorer — ancré en bas, hors du parallax */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-16 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.8, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
