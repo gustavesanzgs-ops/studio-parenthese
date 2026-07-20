@@ -14,6 +14,7 @@ export default function OptimizedImage({
   src,
   alt,
   className = '',
+  style = {},
   width,
   height,
   priority = false,
@@ -61,7 +62,7 @@ export default function OptimizedImage({
     <motion.div
       ref={imgRef}
       className={`relative overflow-hidden ${className}`}
-      style={{ width, height }}
+      style={{ ...style }}
       initial={{ opacity: 0 }}
       animate={{ opacity: isLoaded ? 1 : 0.1 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}

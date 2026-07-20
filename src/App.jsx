@@ -1,13 +1,31 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+import { useEffect } from 'react'
 import { ThemeProvider } from '@/context/ThemeContext'
 import Layout from '@/components/layout/Layout'
 import Home from '@/pages/Home'
 import StudioPage from '@/pages/Studio'
 import InspirationsPage from '@/pages/Inspirations'
 import ContactPage from '@/pages/Contact'
+import { optimizePage } from '@/utils/performance'
+
 function AnimatedRoutes() {
   const location = useLocation()
+
+  // Prefetch related pages based on current route
+  useEffect(() => {
+    const pageMap = {
+      '/': 'home',
+      '/studio': 'studio',
+      '/inspirations': 'inspirations',
+      '/contact': 'contact',
+    }
+    const currentPage = pageMap[location.pathname]
+    if (currentPage) {
+      optimizePage(currentPage)
+    }
+  }, [location.pathname])
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
@@ -19,6 +37,7 @@ function AnimatedRoutes() {
     </AnimatePresence>
   )
 }
+
 export default function App() {
   return (
     <ThemeProvider>

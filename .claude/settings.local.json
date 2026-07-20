@@ -46,7 +46,8 @@
       "Bash(python3)",
       "Bash(xargs basename -a)",
       "Bash(npm remove *)",
-      "Bash(mkdir -p /Users/gustavesanz/studio-parenthese/.claude/skills/design-system-generator/data)"
+      "Bash(mkdir -p /Users/gustavesanz/studio-parenthese/.claude/skills/design-system-generator/data)",
+      "Bash(curl -s http://localhost:5173/)"
     ]
   }
 }

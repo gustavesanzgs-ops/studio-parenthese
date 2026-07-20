@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import TextReveal from '@/components/effects/TextReveal'
+import OptimizedImage from '@/components/ui/OptimizedImage'
 
 export default function Studio() {
   return (
@@ -73,9 +74,11 @@ export default function Studio() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.4 }}
           >
-            <img
+            <OptimizedImage
               src="https://images.pexels.com/photos/5610117/pexels-photo-5610117.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="Studio Parenthèse — expérience immersive"
+              width={1260}
+              height={750}
               className="object-cover w-full h-[520px]"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-8">

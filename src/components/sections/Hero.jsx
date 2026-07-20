@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useRef } from 'react'
 import TextReveal from '@/components/effects/TextReveal'
 import { useTheme } from '@/context/ThemeContext'
+import OptimizedImage from '@/components/ui/OptimizedImage'
 export default function Hero() {
   const containerRef = useRef(null)
   const { themeData } = useTheme()
@@ -247,9 +248,12 @@ export default function Hero() {
                 {themeData.id === 'default' ? (
                   <span style={{ color: 'var(--theme-accent)' }}>parenthèse</span>
                 ) : (
-                  <img
+                  <OptimizedImage
                     src={`/images/logo-${themeData.id}.png`}
                     alt="Parenthèse"
+                    width={400}
+                    height={400}
+                    priority={true}
                     style={{
                       height: themeData.id === 'enquete'
                         ? 'clamp(8rem, 35vw, 16rem)'

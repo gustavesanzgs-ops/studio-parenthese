@@ -1,34 +1,9 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Button from '@/components/ui/Button'
+import FormField from '@/components/ui/FormField'
 import TextReveal from '@/components/effects/TextReveal'
 
-const inputBase = `
-  w-full bg-transparent border-b py-3
-  font-body text-sm text-[var(--color-text-primary)]
-  placeholder:text-[var(--color-text-secondary)]/40
-  focus:outline-none focus:border-[var(--theme-accent)]
-  transition-colors duration-500
-  theme-transition
-`
-
-const borderDefault = { borderColor: 'rgba(138,138,138,0.2)' }
-
-function Field({ label, required, children }) {
-  return (
-    <div className="flex flex-col gap-2">
-      <label className="text-[10px] tracking-[0.25em] uppercase flex items-center gap-1"
-        style={{ color: 'var(--color-text-secondary)', opacity: 0.7 }}
-      >
-        {label}
-        {required && (
-          <span style={{ color: 'var(--theme-accent)' }}>*</span>
-        )}
-      </label>
-      {children}
-    </div>
-  )
-}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -231,115 +206,92 @@ export default function Contact() {
 
               {/* Prénom / Nom */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <Field label="Prénom" required>
-                  <input
-                    type="text"
-                    name="prenom"
-                    placeholder="Votre prénom"
-                    value={formData.prenom}
-                    onChange={handleChange}
-                    required
-                    className={inputBase}
-                    style={borderDefault}
-                  />
-                </Field>
-                <Field label="Nom" required>
-                  <input
-                    type="text"
-                    name="nom"
-                    placeholder="Votre nom"
-                    value={formData.nom}
-                    onChange={handleChange}
-                    required
-                    className={inputBase}
-                    style={borderDefault}
-                  />
-                </Field>
+                <FormField
+                  label="Prénom"
+                  name="prenom"
+                  type="text"
+                  placeholder="Votre prénom"
+                  value={formData.prenom}
+                  onChange={handleChange}
+                  required
+                />
+                <FormField
+                  label="Nom"
+                  name="nom"
+                  type="text"
+                  placeholder="Votre nom"
+                  value={formData.nom}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               {/* Email / Téléphone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <Field label="Email" required>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="votre@email.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className={inputBase}
-                    style={borderDefault}
-                  />
-                </Field>
-                <Field label="Téléphone" required>
-                  <input
-                    type="tel"
-                    name="telephone"
-                    placeholder="+33 6 00 00 00 00"
-                    value={formData.telephone}
-                    onChange={handleChange}
-                    required
-                    className={inputBase}
-                    style={borderDefault}
-                  />
-                </Field>
+                <FormField
+                  label="Email"
+                  name="email"
+                  type="email"
+                  placeholder="votre@email.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+                <FormField
+                  label="Téléphone"
+                  name="telephone"
+                  type="tel"
+                  placeholder="+33 6 00 00 00 00"
+                  value={formData.telephone}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               {/* Entreprise / Nombre de personnes */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <Field label="Entreprise">
-                  <input
-                    type="text"
-                    name="entreprise"
-                    placeholder="Nom de votre entreprise"
-                    value={formData.entreprise}
-                    onChange={handleChange}
-                    className={inputBase}
-                    style={borderDefault}
-                  />
-                </Field>
-                <Field label="Nombre de personnes" required>
-                  <input
-                    type="number"
-                    name="personnes"
-                    placeholder="Ex : 20"
-                    min="1"
-                    value={formData.personnes}
-                    onChange={handleChange}
-                    required
-                    className={inputBase}
-                    style={borderDefault}
-                  />
-                </Field>
+                <FormField
+                  label="Entreprise"
+                  name="entreprise"
+                  type="text"
+                  placeholder="Nom de votre entreprise"
+                  value={formData.entreprise}
+                  onChange={handleChange}
+                />
+                <FormField
+                  label="Nombre de personnes"
+                  name="personnes"
+                  type="number"
+                  placeholder="Ex : 20"
+                  value={formData.personnes}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               {/* Budget */}
-              <Field label="Budget total (ou par participant selon le projet)" required>
-                <input
-                  type="text"
-                  name="budget"
-                  placeholder="Ex : 10 000 €"
-                  value={formData.budget}
-                  onChange={handleChange}
-                  required
-                  className={inputBase}
-                  style={borderDefault}
-                />
-              </Field>
+              <FormField
+                label="Budget total (ou par participant selon le projet)"
+                name="budget"
+                type="text"
+                placeholder="Ex : 10 000 €"
+                value={formData.budget}
+                onChange={handleChange}
+                required
+              />
 
               {/* Projet */}
-              <Field label="Parlez-nous de votre projet" required>
-                <textarea
-                  name="projet"
-                  placeholder="Décrivez votre projet, l'occasion, le lieu souhaité, vos envies…"
-                  rows={5}
-                  value={formData.projet}
-                  onChange={handleChange}
-                  required
-                  className={`${inputBase} resize-none`}
-                  style={borderDefault}
-                />
-              </Field>
+              <FormField
+                label="Parlez-nous de votre projet"
+                name="projet"
+                type="textarea"
+                placeholder="Décrivez votre projet, l'occasion, le lieu souhaité, vos envies…"
+                rows={5}
+                value={formData.projet}
+                onChange={handleChange}
+                maxLength={2000}
+                required
+              />
 
               <div className="pt-2">
                 <Button type="submit" variant="primary" size="lg" disabled={isLoading}>

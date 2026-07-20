@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import TextReveal from '@/components/effects/TextReveal'
+import OptimizedImage from '@/components/ui/OptimizedImage'
 
 const PEXELS = (id, w = 900, h = 600) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}&h=${h}&dpr=1`
@@ -98,11 +99,12 @@ export default function Gallery() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
             >
-              <img
+              <OptimizedImage
                 src={img.src}
                 alt={img.alt}
+                width={900}
+                height={img.id === 1 ? 1100 : 600}
                 className="w-full h-full object-cover transition-transform duration-700 ease-cinematic group-hover:scale-105"
-                loading="lazy"
               />
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
