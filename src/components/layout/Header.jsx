@@ -1,10 +1,24 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Logo from './Logo'
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
+
+  // Manage body class to prevent scrollbar shift
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('menu-open')
+    } else {
+      document.body.classList.remove('menu-open')
+    }
+
+    return () => {
+      document.body.classList.remove('menu-open')
+    }
+  }, [isMenuOpen])
   const { scrollY } = useScroll()
   const headerOpacity = useTransform(scrollY, [0, 100], [0, 1])
   const headerBlur = useTransform(scrollY, [0, 100], [0, 10])

@@ -208,6 +208,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Always reserve space for scrollbar to prevent layout shift */
+  overflow-y: scroll;
 }
 
 body {
@@ -221,6 +223,11 @@ body {
   /* Optimization: Improved rendering */
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent scrollbar shift on mobile menu open */
+body.menu-open {
+  overflow: hidden;
 }
 
 /* Link default styles */
