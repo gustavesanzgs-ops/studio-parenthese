@@ -50,7 +50,8 @@
       "Bash(curl -s http://localhost:5173/)",
       "Bash(cat)",
       "Read(//tmp/**)",
-      "Bash(file /Users/gustavesanz/studio-parenthese/public/images/*.png)"
+      "Bash(file /Users/gustavesanz/studio-parenthese/public/images/*.png)",
+      "Bash(npx netlify-cli *)"
     ]
   }
 }

@@ -9,6 +9,21 @@ import InspirationsPage from '@/pages/Inspirations'
 import ContactPage from '@/pages/Contact'
 import { optimizePage } from '@/utils/performance'
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    // Scroll to top smoothly when route changes
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }, [pathname])
+
+  return null
+}
+
 function AnimatedRoutes() {
   const location = useLocation()
 
@@ -42,6 +57,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Layout>
           <AnimatedRoutes />
         </Layout>

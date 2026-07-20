@@ -112,6 +112,50 @@ export default function Contact() {
           </motion.p>
         </div>
 
+        {/* Form Progress Indicator - TOP POSITION */}
+        {!submitted && (
+          <motion.div
+            className="mb-12 py-4 px-6 rounded-sm border"
+            style={{
+              borderColor: 'rgba(var(--theme-accent-rgb, 255, 90, 0), 0.2)',
+              backgroundColor: 'rgba(var(--theme-accent-rgb, 255, 90, 0), 0.03)',
+            }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <div className="flex items-center justify-between mb-3">
+              <span
+                className="text-xs tracking-[0.2em] uppercase"
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                Progression du formulaire
+              </span>
+              <span
+                className="text-xs font-display font-bold"
+                style={{ color: 'var(--theme-accent)' }}
+              >
+                {Math.round(
+                  ((Object.values(formData).filter((v) => v && v.length > 0).length) / 8) * 100
+                )}
+                %
+              </span>
+            </div>
+            <div className="w-full h-2 bg-[rgba(138,138,138,0.1)] rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-gradient-to-r from-[var(--theme-accent)] to-[var(--theme-accent)]/60 rounded-full"
+                initial={{ width: '0%' }}
+                animate={{
+                  width: `${Math.round(
+                    ((Object.values(formData).filter((v) => v && v.length > 0).length) / 8) * 100
+                  )}%`,
+                }}
+                transition={{ duration: 0.4 }}
+              />
+            </div>
+          </motion.div>
+        )}
+
         {/* Grid : infos + formulaire */}
         <div className="grid md:grid-cols-[1fr_2fr] gap-16 md:gap-24 items-start">
 
@@ -162,46 +206,6 @@ export default function Contact() {
               </p>
             </div>
           </motion.div>
-
-          {/* Form Progress Indicator */}
-          {!submitted && (
-            <motion.div
-              className="mb-8 py-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="flex items-center justify-between mb-3">
-                <span
-                  className="text-xs tracking-[0.2em] uppercase"
-                  style={{ color: 'var(--color-text-secondary)' }}
-                >
-                  Progression du formulaire
-                </span>
-                <span
-                  className="text-xs font-display"
-                  style={{ color: 'var(--theme-accent)' }}
-                >
-                  {Math.round(
-                    ((Object.values(formData).filter((v) => v && v.length > 0).length) / 8) * 100
-                  )}
-                  %
-                </span>
-              </div>
-              <div className="w-full h-1.5 bg-[rgba(138,138,138,0.1)] rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-[var(--theme-accent)] to-[var(--theme-accent)]/60"
-                  initial={{ width: '0%' }}
-                  animate={{
-                    width: `${Math.round(
-                      ((Object.values(formData).filter((v) => v && v.length > 0).length) / 8) * 100
-                    )}%`,
-                  }}
-                  transition={{ duration: 0.4 }}
-                />
-              </div>
-            </motion.div>
-          )}
 
           {/* Formulaire */}
           {submitted ? (
