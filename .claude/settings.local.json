@@ -45,7 +45,8 @@
       "Bash(git push *)",
       "Bash(python3)",
       "Bash(xargs basename -a)",
-      "Bash(npm remove *)"
+      "Bash(npm remove *)",
+      "Bash(mkdir -p /Users/gustavesanz/studio-parenthese/.claude/skills/design-system-generator/data)"
     ]
   }
 }
