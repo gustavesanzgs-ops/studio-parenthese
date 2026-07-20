@@ -34,32 +34,54 @@ export default function Header() {
           </Link>
           <div className="hidden md:flex items-center gap-12">
             {navItems.map((item) => (
-              <Link
+              <motion.div
                 key={item.path}
-                to={item.path}
                 className="relative group"
+                whileHover="hover"
               >
-                <span 
-                  className={
-                    `
-                    text-sm tracking-wide transition-colors duration-500
-                    ${location.pathname === item.path 
-                      ? 'text-[var(--theme-accent)]' 
-                      : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
-                    }
-                  `}
+                <Link
+                  to={item.path}
+                  className="relative"
                 >
-                  {item.label}
-                </span>
-                {location.pathname === item.path && (
-                  <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-px"
-                    style={{ backgroundColor: 'var(--theme-accent)' }}
-                    layoutId="navIndicator"
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  />
-                )}
-              </Link>
+                  <motion.span
+                    className={`
+                      text-sm tracking-wide transition-colors duration-300
+                      ${
+                        location.pathname === item.path
+                          ? 'text-[var(--theme-accent)]'
+                          : 'text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)]'
+                      }
+                    `}
+                    initial={{ y: 0 }}
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {item.label}
+                  </motion.span>
+
+                  {/* Animated underline */}
+                  {location.pathname === item.path ? (
+                    <motion.div
+                      className="absolute -bottom-2 left-0 right-0 h-0.5"
+                      style={{
+                        background: 'linear-gradient(90deg, var(--theme-accent) 0%, var(--theme-accent) 50%, rgba(var(--theme-accent-rgb), 0) 100%)',
+                      }}
+                      layoutId="navIndicator"
+                      transition={{ duration: 0.3 }}
+                    />
+                  ) : (
+                    <motion.div
+                      className="absolute -bottom-2 left-0 right-0 h-0.5"
+                      initial={{ scaleX: 0, originX: '0%' }}
+                      whileHover={{ scaleX: 1 }}
+                      style={{
+                        background: 'linear-gradient(90deg, var(--theme-accent) 0%, rgba(var(--theme-accent-rgb), 0) 100%)',
+                      }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </Link>
+              </motion.div>
             ))}
           </div>
           <button
@@ -100,8 +122,7 @@ export default function Header() {
         </nav>
       </motion.header>
       <motion.div
-        className={
-          `
+        className={`
           fixed inset-0 z-30 md:hidden
           flex flex-col items-center justify-center
           theme-transition
@@ -111,10 +132,16 @@ export default function Header() {
         animate={{
           opacity: isMenuOpen ? 1 : 0,
           pointerEvents: isMenuOpen ? 'auto' : 'none',
+          backdropFilter: isMenuOpen ? 'blur(8px)' : 'blur(0px)',
         }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.4, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
       >
-        <nav className="flex flex-col items-center gap-8">
+        <motion.nav
+          className="flex flex-col items-center gap-8"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={isMenuOpen ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+          transition={{ duration: 0.4, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+        >
           {navItems.map((item, index) => (
             <motion.div
               key={item.path}
@@ -124,21 +151,21 @@ export default function Header() {
                 y: isMenuOpen ? 0 : 20,
               }}
               transition={{
-                duration: 0.5,
-                delay: isMenuOpen ? index * 0.1 : 0,
-                ease: [0.16, 1, 0.3, 1],
+                duration: 0.4,
+                delay: isMenuOpen ? index * 0.08 : 0,
+                ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
               }}
+              whileHover={{ scale: 1.05, x: 10 }}
             >
               <Link
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={
-                  `
-                  font-display text-3xl
-                  transition-colors duration-500
-                  ${location.pathname === item.path 
-                    ? 'text-[var(--theme-accent)]' 
-                    : 'text-[var(--color-text-primary)]'
+                className={`
+                  font-display text-3xl transition-colors duration-300
+                  ${
+                    location.pathname === item.path
+                      ? 'text-[var(--theme-accent)]'
+                      : 'text-[var(--color-text-primary)]'
                   }
                 `}
               >
@@ -146,7 +173,7 @@ export default function Header() {
               </Link>
             </motion.div>
           ))}
-        </nav>
+        </motion.nav>
       </motion.div>
     </>
   )

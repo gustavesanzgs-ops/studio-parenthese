@@ -5,9 +5,13 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
   return (
     <footer className="relative py-20 md:py-32 px-6 md:px-12 theme-transition">
-      <div 
-        className="absolute top-0 left-6 right-6 md:left-12 md:right-12 h-px opacity-10"
-        style={{ backgroundColor: 'var(--color-text-primary)' }}
+      <motion.div
+        className="absolute top-0 left-6 right-6 md:left-12 md:right-12 h-px"
+        style={{ backgroundColor: 'var(--color-text-primary)', opacity: 0.1 }}
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
       />
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 md:gap-24">

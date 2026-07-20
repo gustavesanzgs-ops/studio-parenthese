@@ -163,17 +163,60 @@ export default function Contact() {
             </div>
           </motion.div>
 
+          {/* Form Progress Indicator */}
+          {!submitted && (
+            <motion.div
+              className="mb-8 py-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <span
+                  className="text-xs tracking-[0.2em] uppercase"
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
+                  Progression du formulaire
+                </span>
+                <span
+                  className="text-xs font-display"
+                  style={{ color: 'var(--theme-accent)' }}
+                >
+                  {Math.round(
+                    ((Object.values(formData).filter((v) => v && v.length > 0).length) / 8) * 100
+                  )}
+                  %
+                </span>
+              </div>
+              <div className="w-full h-1.5 bg-[rgba(138,138,138,0.1)] rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full bg-gradient-to-r from-[var(--theme-accent)] to-[var(--theme-accent)]/60"
+                  initial={{ width: '0%' }}
+                  animate={{
+                    width: `${Math.round(
+                      ((Object.values(formData).filter((v) => v && v.length > 0).length) / 8) * 100
+                    )}%`,
+                  }}
+                  transition={{ duration: 0.4 }}
+                />
+              </div>
+            </motion.div>
+          )}
+
           {/* Formulaire */}
           {submitted ? (
             <motion.div
               className="flex flex-col items-start gap-6 py-16"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.6, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
             >
-              <span
-                className="w-2 h-2 rounded-full"
+              {/* Success animation */}
+              <motion.span
+                className="w-3 h-3 rounded-full"
                 style={{ backgroundColor: 'var(--theme-accent)' }}
+                animate={{ scale: [1, 1.3, 1], opacity: [1, 0.8, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
               />
               <h3
                 className="font-display text-2xl"
@@ -182,7 +225,7 @@ export default function Contact() {
                 Message envoyé.
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
-                Nous reviendrons vers vous sous 48h ouvrées.
+                Nous reviendrons vers vous sous 48h ouvrées. Merci de votre intérêt pour Studio Parenthèse!
               </p>
             </motion.div>
           ) : (

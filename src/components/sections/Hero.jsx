@@ -196,9 +196,9 @@ export default function Hero() {
         style={{ y, opacity }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.8, delay: 0.3, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
           className="mb-8"
         >
           <span
@@ -272,9 +272,9 @@ export default function Hero() {
         <motion.p
           className="font-body text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
           style={{ color: 'var(--color-text-secondary)' }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.9, delay: 0.9, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
         >
           <span style={{ whiteSpace: 'nowrap' }}>Des expériences</span> <span style={{ whiteSpace: 'nowrap' }}>sur mesure</span> <span style={{ whiteSpace: 'nowrap' }}>où vous</span> <span style={{ whiteSpace: 'nowrap' }}>vivez l'histoire,</span>
           <br />
@@ -285,14 +285,19 @@ export default function Hero() {
       {/* Explorer — ancré en bas, hors du parallax */}
       <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.8, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+        whileHover={{ scale: 1.05 }}
       >
         <motion.div
-          className="flex flex-col items-center gap-3"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-3 cursor-pointer"
+          animate={{ y: [0, 12, 0] }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
         >
           <span
             className="text-xs tracking-widest uppercase"
@@ -300,9 +305,13 @@ export default function Hero() {
           >
             Explorer
           </span>
-          <div
+          <motion.div
             className="w-px h-12"
-            style={{ background: `linear-gradient(to bottom, var(--theme-accent), transparent)` }}
+            style={{
+              background: `linear-gradient(to bottom, var(--theme-accent), rgba(var(--theme-accent-rgb), 0))`,
+            }}
+            animate={{ scaleY: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           />
         </motion.div>
       </motion.div>

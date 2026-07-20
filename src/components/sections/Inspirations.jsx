@@ -79,14 +79,21 @@ export default function Inspirations() {
                   </span>
                 </div>
               </div>
-              <button
+              <motion.button
                 onClick={() => changeTheme('default')}
-                className="flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase mb-8 transition-opacity duration-300 opacity-35 hover:opacity-80"
+                className="flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase mb-8 transition-opacity duration-300 opacity-50 hover:opacity-100"
                 style={{ color: 'var(--color-text-secondary)' }}
+                whileHover={{ x: -4 }}
+                transition={{ duration: 0.2 }}
               >
-                <span className="w-3 h-px block" style={{ backgroundColor: 'var(--color-text-secondary)' }} />
+                <motion.span
+                  className="w-3 h-px block"
+                  style={{ backgroundColor: 'var(--color-text-secondary)' }}
+                  animate={{ scaleX: [1, 1.5, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                />
                 Revenir à GENESIS
-              </button>
+              </motion.button>
             </motion.div>
           )}
         </AnimatePresence>
