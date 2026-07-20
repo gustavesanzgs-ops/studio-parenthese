@@ -285,9 +285,9 @@ export default function Hero() {
       {/* Spacing and Explorer button */}
       <div className="h-12 md:h-16" />
 
-      {/* Explorer — properly centered in flex */}
+      {/* Explorer — scroll indicator */}
       <motion.div
-        className="flex flex-col items-center gap-3 cursor-pointer mt-auto"
+        className="flex flex-col items-center gap-2 cursor-pointer"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.8, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
