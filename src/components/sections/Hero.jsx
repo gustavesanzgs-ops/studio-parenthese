@@ -282,60 +282,42 @@ export default function Hero() {
         </motion.p>
       </motion.div>
 
-      {/* Explorer — fixed container for perfect alignment */}
+      {/* Explorer — ultra-simple: static text + animated line */}
       <motion.div
         className="absolute bottom-12 md:bottom-16 left-1/2 cursor-pointer"
         style={{
           transform: 'translateX(-50%)',
-          width: '60px',
-          height: '80px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'flex-start',
+          gap: '10px',
         }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.8, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
         whileHover={{ scale: 1.05 }}
       >
-        {/* Text — absolute positioning within container */}
-        <motion.div
+        {/* Text — static, no animation */}
+        <div
           style={{
-            position: 'absolute',
-            top: '0px',
-            left: '50%',
-            transform: 'translateX(-50%)',
             color: 'var(--color-text-secondary)',
             fontSize: '12px',
             fontWeight: 400,
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
             whiteSpace: 'nowrap',
-            lineHeight: '1',
-            height: '12px',
-          }}
-          animate={{ y: [0, -8, 0] }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: 'easeInOut',
+            lineHeight: '1.2',
           }}
         >
           Explorer
-        </motion.div>
+        </div>
 
-        {/* Line — absolute positioning, perfectly below text */}
+        {/* Line — only this animates */}
         <motion.div
           style={{
-            position: 'absolute',
-            top: '22px',
-            left: '50%',
-            transform: 'translateX(-50%)',
             width: '2px',
             height: '48px',
             background: `linear-gradient(to bottom, var(--theme-accent), rgba(var(--theme-accent-rgb), 0))`,
-            transformOrigin: 'center center',
           }}
           animate={{
             scaleY: [1, 1.2, 1],
