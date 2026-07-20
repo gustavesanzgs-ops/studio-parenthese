@@ -300,7 +300,7 @@ export default function Hero() {
           }}
         >
           <span
-            className="text-xs tracking-widest uppercase"
+            className="text-xs tracking-[0.2em] uppercase whitespace-nowrap"
             style={{ color: 'var(--color-text-secondary)' }}
           >
             Explorer
