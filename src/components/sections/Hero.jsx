@@ -282,12 +282,10 @@ export default function Hero() {
         </motion.p>
       </motion.div>
 
-      {/* Explorer — container with relative positioning */}
+      {/* Explorer — properly centered container */}
       <motion.div
-        className="absolute bottom-12 md:bottom-16 left-1/2"
+        className="absolute bottom-12 md:bottom-16 left-1/2 -translate-x-1/2"
         style={{
-          transform: 'translateX(-50%)',
-          position: 'relative',
           width: '60px',
           height: '80px',
           cursor: 'pointer',
