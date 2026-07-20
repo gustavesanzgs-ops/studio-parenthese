@@ -192,7 +192,7 @@ export default function Hero() {
       </motion.div>
 
       <motion.div
-        className="relative z-10 text-center px-6 max-w-3xl w-full"
+        className="relative z-10 text-center px-6 max-w-3xl w-full flex flex-col items-center"
         style={{ y, opacity }}
       >
         <motion.div
@@ -282,22 +282,25 @@ export default function Hero() {
         </motion.p>
       </motion.div>
 
-      {/* Explorer — ancré en bas, hors du parallax */}
+      {/* Spacing and Explorer button */}
+      <div className="h-12 md:h-16" />
+
+      {/* Explorer — properly centered in flex */}
       <motion.div
-        className="absolute bottom-16 left-1/2 -translate-x-1/2 z-10"
+        className="flex flex-col items-center gap-3 cursor-pointer mt-auto"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.8, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
         whileHover={{ scale: 1.05 }}
       >
         <motion.div
-          className="flex flex-col items-center gap-3 cursor-pointer"
           animate={{ y: [0, 12, 0] }}
           transition={{
             duration: 2.5,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
+          className="flex flex-col items-center gap-3"
         >
           <span
             className="text-xs tracking-[0.2em] uppercase whitespace-nowrap"
@@ -315,6 +318,9 @@ export default function Hero() {
           />
         </motion.div>
       </motion.div>
+
+      {/* Bottom spacing */}
+      <div className="h-8 md:h-12" />
 
       <div
         className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
