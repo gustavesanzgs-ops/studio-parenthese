@@ -297,16 +297,16 @@ export default function Hero() {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="flex flex-col items-center gap-3"
+          className="flex flex-col items-center gap-1"
         >
           <span
-            className="text-xs tracking-[0.2em] uppercase whitespace-nowrap"
+            className="text-xs tracking-[0.15em] uppercase whitespace-nowrap leading-none"
             style={{ color: 'var(--color-text-secondary)' }}
           >
             Explorer
           </span>
           <motion.div
-            className="w-px h-12"
+            className="w-0.5 h-12"
             style={{
               background: `linear-gradient(to bottom, var(--theme-accent), rgba(var(--theme-accent-rgb), 0))`,
             }}
