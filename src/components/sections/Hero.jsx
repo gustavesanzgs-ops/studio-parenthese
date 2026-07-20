@@ -282,7 +282,7 @@ export default function Hero() {
         </motion.p>
       </motion.div>
 
-      {/* Explorer — ultra-simple: static text + animated line */}
+      {/* Explorer — text and line perfectly centered on same axis */}
       <motion.div
         className="absolute bottom-12 md:bottom-16 left-1/2 cursor-pointer"
         style={{
@@ -290,14 +290,15 @@ export default function Hero() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '10px',
+          justifyContent: 'flex-start',
+          width: '100%',
         }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.8, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
         whileHover={{ scale: 1.05 }}
       >
-        {/* Text — static, no animation */}
+        {/* Text — centered within container */}
         <div
           style={{
             color: 'var(--color-text-secondary)',
@@ -307,17 +308,23 @@ export default function Hero() {
             textTransform: 'uppercase',
             whiteSpace: 'nowrap',
             lineHeight: '1.2',
+            textAlign: 'center',
+            width: '100%',
           }}
         >
           Explorer
         </div>
 
-        {/* Line — only this animates */}
+        {/* Spacer */}
+        <div style={{ height: '10px' }} />
+
+        {/* Line — centered on same axis as text */}
         <motion.div
           style={{
             width: '2px',
             height: '48px',
             background: `linear-gradient(to bottom, var(--theme-accent), rgba(var(--theme-accent-rgb), 0))`,
+            margin: '0 auto',
           }}
           animate={{
             scaleY: [1, 1.2, 1],
